@@ -3,11 +3,8 @@
 			<div class="col-md-10 col-md-offset-1">
 				<table class="table table-bordered table-striped text-center">
 					<tr>
-                                            <th class="text-center" width="20%">THEMES</th>
-                                            <th class="text-center" width="10%">DUREE</th>
-                                            <th class="text-center" width="10%">NOMBRES MOTS</th>
-                                            <th class="text-center" width="20%">GERER MOTS</th>
-                                            <th class="text-center" width="40%">ACTIONS</th>
+                                            <th class="text-center" width="50%">THEMES</th>
+                                            <th class="text-center" width="50%">ACTIONS</th>
 					</tr>
                                         <?php
                                         foreach($lesThemes as $unThemes)
@@ -20,10 +17,7 @@
                                                         ?>
                                                         <form method="POST" action="index.php">
                                                             <input id="masque" name="id" type="text" class="form-control" value="<?php echo $unThemes['idTheme']; ?>">
-                                                            <td><input name="nom" type="text" class="form-control" value="<?php echo $unThemes['nomTheme']; ?>"></td>
-                                                            <td><input name="duree" type="text" class="form-control" value="<?php echo $unThemes['dureeTheme']; ?>"></td>
-                                                            <td><?php echo $unThemes['nbMots']; ?></td>
-                                                            <td ><a href='gestionMots.html' class="btn btn-default btn-block" disabled>GERER MOTS</a></</td>
+                                                            <td><input name="nom" type="text" class="form-control" value="<?php echo $unThemes['nomTheme']; ?>"></td>                                         
                                                             <td>
                                                                 <div class="row">
                                                                     <div class="col-md-6">
@@ -41,9 +35,6 @@
                                                     {
                                                         ?>
                                                         <td><?php echo $unThemes['nomTheme']; ?></td>
-                                                        <td><?php echo $unThemes['dureeTheme']; ?></td>
-                                                        <td><?php echo $unThemes['nbMots']; ?></td>
-                                                        <td ><a href='index.php?uc=gestionMots&idTheme=<?php echo $unThemes['idTheme']; ?>' class="btn btn-default btn-block">GERER MOTS</a></</td>
                                                         <td>
                                                             <div class="row">
                                                                     <div class="col-md-6">
@@ -64,9 +55,6 @@
                                         <tr>
                                             <form method="POST" action="index.php">
                                                 <td><input type="text" class="form-control" placeholder="Nom" name="nom"></td>
-                                                <td><input type="text" class="form-control" placeholder="Duree" name="duree"></td>
-                                                <td></td>
-                                                <td ><a href='#' class="btn btn-default btn-block" disabled>GERER MOTS</a></</td>
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-md-6 col-md-offset-3">

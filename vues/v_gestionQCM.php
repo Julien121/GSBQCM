@@ -3,9 +3,9 @@
 			<div class="col-md-10 col-md-offset-1">
 				<table class="table table-bordered table-striped text-center">
 					<tr>
-						<th class="text-center" width="20%">MOT</th>
-						<th class="text-center" width="20%">NOMBRES POINTS</th>
-						<th class="text-center" width="20%">DUREE</th>
+						<th class="text-center" width="20%">THEME</th>
+						<th class="text-center" width="20%">NOM DU QCM</th>
+						<th class="text-center" width="20%">GERER QUESTIONS</th>
 						<th class="text-center" width="40%">ACTIONS</th>
 					</tr>
                                             <?php

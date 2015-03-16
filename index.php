@@ -13,11 +13,20 @@ $uc = $_GET['uc'];
 switch($uc){
 	case 'index':
 	{
+            include("vues/v_menu.php");
             include("controleurs/c_gererThemes.php");break;
 	}
-        case 'gestionMots':
+        case 'gestionQCM':
         {
-            include("controleurs/c_gererMots.php");
+            include("vues/v_menu.php");
+            //include("controleurs/c_gererQCM.php");
+            include("vues/v_gestionQCM.php");
+        }
+        case 'gestionQuestion':
+        {
+            include("vues/v_menu.php");
+            //include("controleurs/c_gererQuestion.php");
+            include("vues/v_menu.php");
         }
         
 }

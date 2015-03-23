@@ -1,5 +1,5 @@
-	<section style="margin:50px 0 50px">
-		<div class="container">
+	<section>
+
 			<div class="col-md-10 col-md-offset-1">
 				<table class="table table-bordered table-striped text-center">
 					<tr>
@@ -66,5 +66,4 @@
 					</tr>
 				</table>
 			</div>
-		</div>
 	</section>

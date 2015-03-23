@@ -1,5 +1,5 @@
-<section style="margin:50px 0 50px">
-		<div class="container">
+<section>
+
 			<div class="col-md-10 col-md-offset-1">
 				<table class="table table-bordered table-striped text-center">
 					<tr>
@@ -19,9 +19,8 @@
                                                         ?>
                                                         <form method="POST" action="index.php?uc=gestionMots">
                                                             <input type="text" id='masque' name="idMot" class="form-control" value="<?php echo $unMot['idMot']; ?>">
-                                                            <td><input type="text" name="contenuMot" class="form-control" value="<?php echo $unMot['contenuMot']; ?>"></td>
-                                                            <td><input type="text" name="nbPointsMot" class="form-control" value="<?php echo $unMot['nbPointsMot']; ?>"></td>
-                                                            <td><input type="text" name="dureeMot" class="form-control" value="<?php echo $unMot['dureeMot']; ?>"> </td>
+                                                            <td><input type="text" name="dureeMot" class="form-control" value="<?php echo $unQCM['nomQCM']; ?>"> </td>
+                                                            <td><button type="submit" name="modif" class="btn btn-primary btn-block">VALIDER</button></td>
                                                             <td>
                                                                 <div class="row">
                                                                     <div class="col-md-6 col-md-offset-3">
@@ -75,5 +74,5 @@
             <div class="col-md-3 col-md-offset-1">
                 <a href='index.php' class="btn btn-default btn-block">LISTE DES THEMES</a>
             </div>
-		</div>
+
 	</section>

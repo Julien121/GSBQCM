@@ -47,15 +47,13 @@ class PdoGsb{
 		return PdoGsb::$monPdoGsb;  
 	}
         
-        public function afficherThemes()
+        public function afficherQCM()
         {
             $res = PdoGsb::$monPdo->prepare
-                    ("SELECT idTheme, nomTheme, dureeTheme, COUNT(idMot) AS nbMots "
-                    . "FROM THEMES T "
-                    . "LEFT JOIN MOTS M "
-                    . "ON T.idTheme = M.idThemeMot "
-                    . "GROUP BY idTheme, nomTheme, dureeTheme "
-                    );
+                    ("SELECT Q.identifiant AS idQCM, T.libelle AS libelleTheme, Q.libelle AS libelleQCM "
+                    . "FROM QCM Q "
+                    . "INNER JOIN THEME T "
+                    . "ON Q.idTheme = T.identifiant");
             $res->execute();
             $lesLignes = $res->fetchAll();
             return $lesLignes;

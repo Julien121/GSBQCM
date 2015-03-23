@@ -32,5 +32,5 @@ if(isset($_GET["sup"]))
     $pdo->supprimerThemes($_GET['sup']);
     header('location:index.php');
 }
-$lesThemes = $pdo->afficherThemes();
-include("vues/v_accueil.php");
+$lesQCM = $pdo->afficherQCM();
+include("vues/v_gestionQCM.php");

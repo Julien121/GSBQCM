@@ -5,21 +5,21 @@
 					<tr>
 						<th class="text-center" width="20%">THEME</th>
 						<th class="text-center" width="20%">NOM DU QCM</th>
-						<th class="text-center" width="20%">GERER QUESTIONS</th>
 						<th class="text-center" width="40%">ACTIONS</th>
 					</tr>
                                             <?php
-                                                foreach($lesMots as $unMot)
+                                                foreach($lesQCM as $unQCM)
                                                 {
                                                 ?>
                                                 <tr>
                                                     <?php 
-                                                    if(isset($_GET["modif"]) && $unMot['idMot'] == $_GET["modif"])
+                                                    if(isset($_GET["modif"]) && $unQCM['idQCM'] == $_GET["modif"])
                                                     {
                                                         ?>
                                                         <form method="POST" action="index.php?uc=gestionMots">
-                                                            <input type="text" id='masque' name="idMot" class="form-control" value="<?php echo $unMot['idMot']; ?>">
-                                                            <td><input type="text" name="dureeMot" class="form-control" value="<?php echo $unQCM['nomQCM']; ?>"> </td>
+                                                            <input type="text" id='masque' name="idQCM" class="form-control" value="<?php echo $unQCM['idQCM']; ?>">
+                                                            <td><input type="text" name="libelle" class="form-control" value="<?php echo $unQCM['libelleTheme']; ?>"> </td>
+                                                            <td><input type="text" name="libelle" class="form-control" value="<?php echo $unQCM['libelleQCM']; ?>"> </td>
                                                             <td><button type="submit" name="modif" class="btn btn-primary btn-block">VALIDER</button></td>
                                                             <td>
                                                                 <div class="row">
@@ -34,16 +34,15 @@
                                                     else
                                                     {
                                                         ?>
-                                                        <td><?php echo $unMot['contenuMot']; ?></td>
-                                                        <td><?php echo $unMot['nbPointsMot']; ?></td>
-                                                        <td><?php echo $unMot['dureeMot']; ?></td>
+                                                        <td><?php echo $unQCM['libelleTheme']; ?></td>
+                                                        <td><?php echo $unQCM['libelleQCM']; ?></td>
                                                         <td>
                                                             <div class="row">
                                                                     <div class="col-md-6">
-                                                                            <a href='index.php?uc=gestionMots&modif=<?php echo $unMot['idMot']; ?>' class="btn btn-default btn-block col-md-6">MODIFIER</a>
+                                                                            <a href='index.php?uc=gestionQCM&modif=<?php echo $unQCM['idQCM']; ?>' class="btn btn-default btn-block col-md-6">MODIFIER</a>
                                                                     </div>
                                                                     <div class="col-md-6">
-                                                                            <a href='index.php?uc=gestionMots&sup=<?php echo $unMot['idMot']; ?>' class="btn btn-danger btn-block col-md-6" onclick="return confirm('Voulez vraiment supprimer');">SUPPRIMER</a>
+                                                                            <a href='index.php?uc=gestionQCM&sup=<?php echo $unQCM['idQCM']; ?>' class="btn btn-danger btn-block col-md-6" onclick="return confirm('Voulez vraiment supprimer');">SUPPRIMER</a>
                                                                     </div>
                                                             </div>
                                                         </td>
@@ -55,11 +54,10 @@
                                         }
                                         ?>
 					<tr>
-						<form method="POST" action="index.php?uc=gestionMots">
+						<form method="POST" action="index.php?uc=gestionQCM">
                            
-							<td><input type="text" class="form-control" id="inputMot" name="mot" placeholder="Mot"></td>
-							<td><input type="text" class="form-control" id="inputPoint" name="point" placeholder="Point"></td>
-							<td><input type="text" class="form-control" id="inputDuree" name="duree" placeholder="Duree"></td>
+							<td><input type="text" class="form-control" id="inputMot" name="libelleTheme" placeholder="NOM THEME"></td>
+							<td><input type="text" class="form-control" id="inputPoint" name="libelle" placeholder="NOM QCM"></td>
 							<td>
 								<div class="row">
                                                                     <div class="col-md-6 col-md-offset-3">
@@ -71,8 +69,8 @@
 					</tr>
 				</table>
 			</div>
-            <div class="col-md-3 col-md-offset-1">
+<!--            <div class="col-md-3 col-md-offset-1">
                 <a href='index.php' class="btn btn-default btn-block">LISTE DES THEMES</a>
-            </div>
+            </div>-->
 
 	</section>

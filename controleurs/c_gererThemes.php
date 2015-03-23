@@ -5,32 +5,51 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+if(isset($_GET['idTheme']) || isset ($_SESSION['idTheme']))
+{
+    if(isset($_GET['idTheme']))
+    {
+        $_SESSION['idTheme'] = $_GET['idTheme'];
+    }
+
+}
+else
+{
+    header('Location: index.php');
+}
+
+
 $d = $_POST;
 if(isset($d) || !empty($d))
 {
     if(isset($d["modif"]))
     {
-        if(!empty($d['nom'])){
-            $pdo->modifierThemesNom($d['id'],$d['nom']);   
+        if(!empty($d['idMot']) && !empty($d['contenuMot']) && !empty($d['nbPointsMot']) && !empty($d['dureeMot'])){
+            $pdo->modifierMots($d['idMot'],$d['contenuMot'],$d['nbPointsMot'],$d['dureeMot']);   
         }
-        if(!empty($d['duree'])){
-            $pdo->modifierThemesDuree($d['id'],$d['duree']);
+        else
+        {
+            ajouterErreur("Veuillez renseigner tout les champs");
+            include ('vues\v_erreurs.php');
         }
     }
     if(isset($d["ajouter"]))
     {
-        if(!empty($d['nom']) && !empty($d['duree'])){
-            $pdo->ajouterThemes($d['nom'],$d['duree']);   
+        if(!empty($d['mot']) && !empty($d['point']) && !empty($d['duree'])){
+            $pdo->ajouterMots($d['mot'],$d['point'],$_SESSION['idTheme'],$d['duree']);   
         }else{
-            ajouterErreur('Veuillez mettre un nom et une durée non nulle.');
+            ajouterErreur('Veuillez mettre un nom, un nombre de point et une durée non nulle.');
             include ('vues\v_erreurs.php');
         }
     }
 }
 if(isset($_GET["sup"]))
 {
-    $pdo->supprimerThemes($_GET['sup']);
-    header('location:index.php');
+    $pdo->supprimerMots($_GET['sup']);
+    header('location:index.php?uc=gestionMots');
 }
-$lesQCM = $pdo->afficherQCM();
-include("vues/v_gestionQCM.php");
+
+$lesThemes = $pdo->afficherThemes($_SESSION['idTheme']);
+
+include("vues/v_gestionMots.php");

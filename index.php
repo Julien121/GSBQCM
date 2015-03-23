@@ -19,13 +19,13 @@ switch($uc){
         case 'gestionQCM':
         {
             include("vues/v_menu.php");
-            include("controleurs/c_gererThemes.php");
+            include("controleurs/c_gererQCM.php");
             break;
         }
         case 'gestionQuestion':
         {
             include("vues/v_menu.php");
-            //include("controleurs/c_gererQuestion.php");
+            include("controleurs/c_gererQuestions.php");
             break;
         }
         

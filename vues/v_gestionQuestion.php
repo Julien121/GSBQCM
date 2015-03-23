@@ -3,7 +3,7 @@
 			<div class="col-md-10 col-md-offset-1">
 				<table class="table table-bordered table-striped text-center">
 					<tr>
-						<th class="text-center" width="20%">THEME</th>
+						<th class="text-center" width="20%">Question</th>
 						<th class="text-center" width="20%">NOM DU QCM</th>
 						<th class="text-center" width="40%">ACTIONS</th>
 					</tr>
@@ -20,6 +20,7 @@
                                                             <input type="text" id='masque' name="idQCM" class="form-control" value="<?php echo $unQCM['idQCM']; ?>">
                                                             <td><input type="text" name="libelle" class="form-control" value="<?php echo $unQCM['libelleTheme']; ?>"> </td>
                                                             <td><input type="text" name="libelle" class="form-control" value="<?php echo $unQCM['libelleQCM']; ?>"> </td>
+                                                            <td><button type="submit" name="modif" class="btn btn-primary btn-block">VALIDER</button></td>
                                                             <td>
                                                                 <div class="row">
                                                                     <div class="col-md-6 col-md-offset-3">

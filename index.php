@@ -21,12 +21,13 @@ switch($uc){
             include("vues/v_menu.php");
             //include("controleurs/c_gererQCM.php");
             include("vues/v_gestionQCM.php");
+            break;
         }
         case 'gestionQuestion':
         {
             include("vues/v_menu.php");
             //include("controleurs/c_gererQuestion.php");
-            include("vues/v_menu.php");
+            break;
         }
         
 }

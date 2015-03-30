@@ -35,6 +35,6 @@ if(isset($_GET["sup"]))
     header('location:index.php?uc=gestionMots');
 }
 
-$lesThemes = $pdo->afficherThemes($_SESSION['idTheme']);
+$lesThemes = $pdo->afficherThemes();
 
 include("vues/v_gestionThemes.php");

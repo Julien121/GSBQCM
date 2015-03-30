@@ -59,6 +59,28 @@ class PdoGsb{
             return $lesLignes;
             
         }
+        public function afficherQuestion()
+        {
+            $res = PdoGsb::$monPdo->prepare
+                    ("SELECT Q.identifiant AS idQuestion, Q.libelle, Q.idQCM "
+                    . "FROM QUESTION Q ");
+            $res->execute();
+            $lesLignes = $res->fetchAll();
+            return $lesLignes;
+            
+        }
+        public function afficherReponse($idQuestion)
+        {
+            $res = PdoGsb::$monPdo->prepare
+                    ("SELECT identifiant AS idReponse, libelle, idQuestion "
+                    . "FROM REPONSE "
+                    . "WHERE idQuestion = :idQuestion ");
+            $res->bindValue('idQuestion', $idQuestion);
+            $res->execute();
+            $lesLignes = $res->fetchAll();
+            return $lesLignes;
+            
+        }
         
         public function afficherThemes()
         {

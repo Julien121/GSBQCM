@@ -50,7 +50,7 @@ class PdoGsb{
         public function afficherQCM()
         {
             $res = PdoGsb::$monPdo->prepare
-                    ("SELECT Q.identifiant AS idQCM, T.libelle AS libelleTheme, Q.libelle AS libelleQCM "
+                    ("SELECT Q.identifiant AS idQCM, T.libelle AS libelleTheme, Q.libelle AS libelleQCM, idTheme "
                     . "FROM QCM Q "
                     . "INNER JOIN THEME T "
                     . "ON Q.idTheme = T.identifiant");
@@ -60,16 +60,17 @@ class PdoGsb{
             
         }
         
-        public function modifierThemesNom($idTheme,$nomTheme)
+        public function afficherThemes()
         {
             $res = PdoGsb::$monPdo->prepare
-                    ("UPDATE THEMES "
-                    . "SET nomTheme = :nomTheme "
-                    . "WHERE idTheme = :idTheme ");
-            $res->bindValue('idTheme', $idTheme);
-            $res->bindValue('nomTheme', $nomTheme);
+                    ("SELECT identifiant AS idTheme, libelle AS libelleTheme "
+                    . "FROM THEME");
             $res->execute();
+            $lesLignes = $res->fetchAll();
+            return $lesLignes;
         }
+        
+        
          public function modifierThemesDuree($idTheme,$dureeTheme)
         {
             $res = PdoGsb::$monPdo->prepare

@@ -3,7 +3,7 @@
 			<div class="col-md-10 col-md-offset-1">
 				<table class="table table-bordered table-striped text-center">
 					<tr>
-						<th class="text-center" width="20%">THEME</th>
+						<th class="text-center" width="20%">Question</th>
 						<th class="text-center" width="20%">NOM DU QCM</th>
 						<th class="text-center" width="40%">ACTIONS</th>
 					</tr>
@@ -16,26 +16,15 @@
                                                     if(isset($_GET["modif"]) && $unQCM['idQCM'] == $_GET["modif"])
                                                     {
                                                         ?>
-                                                        <form method="POST" action="index.php?uc=gestionQCM">
+                                                        <form method="POST" action="index.php?uc=gestionMots">
                                                             <input type="text" id='masque' name="idQCM" class="form-control" value="<?php echo $unQCM['idQCM']; ?>">
-                                                            <td>
-                                                                <select class="form-control" name="theme">
-                                                                    <?php foreach ($lesThemes as $unTheme): ?>
-                                                                        <?php if($unTheme['idTheme']==$unQCM['idTheme']) : ?>
-                                                                    <option selected value="<?php echo $unTheme['idTheme']; ?>"><?php echo $unTheme['libelleTheme']; ?></option>
-                                                                        <?php else: ?>
-                                                                            <option  value="<?php echo $unTheme['idTheme']; ?>"><?php echo $unTheme['libelleTheme']; ?></option>
-                                                                        <?php endif; ?>    
-                                                                    <?php endforeach; ?>                                                
-                                                            </td>
+                                                            <td><input type="text" name="libelle" class="form-control" value="<?php echo $unQCM['libelleTheme']; ?>"> </td>
                                                             <td><input type="text" name="libelle" class="form-control" value="<?php echo $unQCM['libelleQCM']; ?>"> </td>
+                                                            <td><button type="submit" name="modif" class="btn btn-primary btn-block">VALIDER</button></td>
                                                             <td>
                                                                 <div class="row">
-                                                                    <div class="col-md-6">
+                                                                    <div class="col-md-6 col-md-offset-3">
                                                                             <button type="submit" name="modif" class="btn btn-primary btn-block">VALIDER</button>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                            <button type="submit" name="annuler" class="btn btn-danger btn-block">ANNULER</button>
                                                                     </div>
                                                                 </div>
                                                             </td>

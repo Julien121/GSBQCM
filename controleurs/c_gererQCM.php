@@ -5,22 +5,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-$d = $_POST;
-if(isset($d) || !empty($d))
+if(isset($_POST) || !empty($_POST))
 {
-    if(isset($d["modif"]))
+    if(isset($_POST["modif"]))
     {
-        if(!empty($d['nom'])){
-            $pdo->modifierThemesNom($d['id'],$d['nom']);   
+        if(!empty($_POST['nom'])){
+            $pdo->modifierThemesNom($_POST['id'],$_POST['nom']);   
         }
-        if(!empty($d['duree'])){
-            $pdo->modifierThemesDuree($d['id'],$d['duree']);
+        if(!empty($_POST['duree'])){
+            $pdo->modifierThemesDuree($_POST['id'],$_POST['duree']);
         }
     }
-    if(isset($d["ajouter"]))
+    if(isset($_POST["ajouter"]))
     {
-        if(!empty($d['nom']) && !empty($d['duree'])){
-            $pdo->ajouterThemes($d['nom'],$d['duree']);   
+        if(!empty($_POST['nom']) && !empty($_POST['duree'])){
+            $pdo->ajouterThemes($_POST['nom'],$_POST['duree']);   
         }else{
             ajouterErreur('Veuillez mettre un nom et une durée non nulle.');
             include ('vues\v_erreurs.php');

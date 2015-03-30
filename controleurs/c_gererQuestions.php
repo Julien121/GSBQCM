@@ -1,3 +1,3 @@
 <?php
 
-include("vues/v_gestionMots.php");
+include("vues/v_gestionQuestions.php");

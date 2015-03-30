@@ -6,27 +6,12 @@
  * and open the template in the editor.
  */
 
-if(isset($_GET['idTheme']) || isset ($_SESSION['idTheme']))
+if(isset($_POST) || !empty($_POST))
 {
-    if(isset($_GET['idTheme']))
+    if(isset($_POST["modif"]))
     {
-        $_SESSION['idTheme'] = $_GET['idTheme'];
-    }
-
-}
-else
-{
-    header('Location: index.php');
-}
-
-
-$d = $_POST;
-if(isset($d) || !empty($d))
-{
-    if(isset($d["modif"]))
-    {
-        if(!empty($d['idMot']) && !empty($d['contenuMot']) && !empty($d['nbPointsMot']) && !empty($d['dureeMot'])){
-            $pdo->modifierMots($d['idMot'],$d['contenuMot'],$d['nbPointsMot'],$d['dureeMot']);   
+        if(!empty($_POST['idMot']) && !empty($_POST['contenuMot']) && !empty($_POST['nbPointsMot']) && !empty($_POST['dureeMot'])){
+            $pdo->modifierMots($_POST['idMot'],$_POST['contenuMot'],$_POST['nbPointsMot'],$_POST['dureeMot']);   
         }
         else
         {
@@ -34,10 +19,10 @@ if(isset($d) || !empty($d))
             include ('vues\v_erreurs.php');
         }
     }
-    if(isset($d["ajouter"]))
+    if(isset($_POST["ajouter"]))
     {
-        if(!empty($d['mot']) && !empty($d['point']) && !empty($d['duree'])){
-            $pdo->ajouterMots($d['mot'],$d['point'],$_SESSION['idTheme'],$d['duree']);   
+        if(!empty($_POST['mot']) && !empty($_POST['point']) && !empty($_POST['duree'])){
+            $pdo->ajouterMots($_POST['mot'],$_POST['point'],$_SESSION['idTheme'],$_POST['duree']);   
         }else{
             ajouterErreur('Veuillez mettre un nom, un nombre de point et une durée non nulle.');
             include ('vues\v_erreurs.php');
@@ -52,4 +37,4 @@ if(isset($_GET["sup"]))
 
 $lesThemes = $pdo->afficherThemes($_SESSION['idTheme']);
 
-include("vues/v_gestionMots.php");
+include("vues/v_gestionThemes.php");
